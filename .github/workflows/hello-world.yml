@@ -16,21 +16,48 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  job_name_print_hello_world:
+  #job_name_print_hello_world:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
+    #steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      #- uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Step name => Run a one-line script
-        run: echo Hello, world!
+      #- name: Step name => Run a one-line script
+        #run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Step name => Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      #- name: Step name => Run a multi-line script
+        #run: |
+          #echo Add other actions to build,
+          #echo test, and deploy your project.
+ 
+   run_frontend: 
+     name: Run frontend folder 
+     runs-on: ubuntu-latest
+
+     steps: 
+       - name: checking out repository code
+         uses: actions/checkout@v3
+
+       - name: run Frontend file
+         run: |
+          cd frontend
+          node file.js
+
+   run_backend: 
+     name: Run Backend folder 
+     runs-on: ubuntu-latest
+
+     steps: 
+       - name: checking out repository code
+         uses: actions/checkout@v3
+
+       - name: run Backend file
+         run: |
+          cd backend
+          node file.py
+          
