@@ -1,0 +1,31 @@
+name: Run Backend => workflow name
+
+# Controls when the workflow will run
+on: 
+  push:
+    branches: [ "main" ]
+    paths: 
+      - "backend/**" # when code changes of specified folder
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  # This workflow contains a single job called "run_backend"
+ 
+   run_backend: 
+     name: Run backend folder 
+     runs-on: ubuntu-latest # The type of runner that the job will run on
+
+
+     # Steps represent a sequence of tasks that will be executed as part of the job
+     steps: 
+       - name: checking out repository code
+         uses: actions/checkout@v3  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+         
+       - name: run Backend file
+         run: |
+          cd backend
+          python file.py
+          
